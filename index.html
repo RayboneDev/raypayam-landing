@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رای‌پیام | مدیریت هوشمند و امن پیامک‌ها</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="selection:bg-cyanGlow selection:text-midnight">
+
+    <!-- Ambient Gradient Background Lights -->
+    <div
+        class="fixed top-0 right-1/4 w-96 h-96 bg-cyanGlow/10 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse-glow">
+    </div>
+    <div
+        class="fixed bottom-1/3 left-10 w-[500px] h-[500px] bg-royalBlue/15 rounded-full blur-[150px] pointer-events-none -z-10">
+    </div>
+    <div class="fixed top-1/2 left-1/3 w-80 h-80 bg-coralRed/5 rounded-full blur-[100px] pointer-events-none -z-10">
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 right-0 left-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div
+                        class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyanGlow to-royalBlue flex items-center justify-center text-midnight font-black text-xl shadow-lg shadow-cyanGlow/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-shield-halved text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-tight text-white">رای‌<span
+                                class="text-cyanGlow">پیام</span></span>
+                        <span class="block text-[10px] text-gray-400 font-medium">مدیریت هوشمند پیامک‌ها</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                    <a href="#features" class="hover:text-cyanGlow transition-colors">قابلیت‌های کلیدی</a>
+                    <a href="#security" class="hover:text-cyanGlow transition-colors">امنیت و ضد فیشینگ</a>
+                    <a href="#simulator" class="hover:text-cyanGlow transition-colors">شبیه‌ساز زنده</a>
+                    <a href="#crowdsourcing" class="hover:text-cyanGlow transition-colors">شبکه گزارش‌دهی</a>
+                    <a href="#contact" class="hover:text-cyanGlow transition-colors">ارتباط با ما</a>
+                    <a href="#faq" class="hover:text-cyanGlow transition-colors">سوالات متداول</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#download"
+                        class="relative group px-6 py-2.5 rounded-xl font-bold text-sm text-midnight bg-gradient-to-r from-cyanGlow to-cyanAccent hover:shadow-lg hover:shadow-cyanGlow/30 transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-brands fa-android text-base"></i>
+                        <span>دانلود رایگان</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-btn" class="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-t border-gray-800 bg-navyDark/95 backdrop-blur-xl px-6 py-5 flex-col gap-4">
+            <a href="#features" class="mobile-link text-gray-300 hover:text-cyanGlow py-2">قابلیت‌های کلیدی</a>
+            <a href="#security" class="mobile-link text-gray-300 hover:text-cyanGlow py-2">امنیت و ضد فیشینگ</a>
+            <a href="#simulator" class="mobile-link text-gray-300 hover:text-cyanGlow py-2">شبیه‌ساز زنده</a>
+            <a href="#crowdsourcing" class="mobile-link text-gray-300 hover:text-cyanGlow py-2">شبکه گزارش‌دهی</a>
+            <a href="#contact" class="mobile-link text-gray-300 hover:text-cyanGlow py-2">ارتباط با ما</a>
+            <a href="#faq" class="mobile-link text-gray-300 hover:text-cyanGlow py-2">سوالات متداول</a>
+            <a href="#download"
+                class="mobile-link mt-2 w-full text-center py-3 rounded-xl font-bold text-midnight bg-cyanGlow">
+                دانلود مستقیم رای‌پیام
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Hero Left/Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-right">
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyanGlow/10 border border-cyanGlow/30 text-cyanGlow text-xs sm:text-sm font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-cyanGlow animate-ping"></span>
+                        <span>نسخه جدید با هوش مصنوعی تشخیص کلاهبرداری سایبری</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight sm:leading-tight">
+                        مدیریت هوشمند و امن پیامک‌ها با <span
+                            class="bg-gradient-to-l from-cyanGlow via-cyanAccent to-royalBlue bg-clip-text text-transparent">رای‌پیام</span>
+                    </h1>
+
+                    <!-- Paragraph -->
+                    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        تجربه‌ای روان، سریع و کاملاً امن در برخورد با پیامک‌های روزمره. شناسایی آنی کدهای OTP، سپر دفاعی
+                        هوشمند در برابر لینک‌های فیشینگ و مدیریت منظم پیام‌های دو سیم‌کارت.
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#download"
+                            class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-cyanGlow to-cyanAccent text-midnight font-black text-base shadow-xl shadow-cyanGlow/25 hover:shadow-cyanGlow/40 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-android text-2xl"></i>
+                            <span>دانلود مستقیم فایل (APK)</span>
+                        </a>
+
+                        <a href="#simulator"
+                            class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel text-white font-bold text-base hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/10">
+                            <i class="fa-solid fa-play text-cyanGlow text-sm"></i>
+                            <span>تست آنلاین ویژگی‌ها</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Mini Banner -->
+                    <div class="pt-6 border-t border-gray-800/80 grid grid-cols-3 gap-4 text-center lg:text-right">
+                        <div>
+                            <div class="text-xl sm:text-2xl font-black text-white">+۱۰۰,۰۰۰</div>
+                            <div class="text-xs text-gray-400 mt-1">کاربر فعال ایرانی</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-black text-cyanGlow">۹۹.۸٪</div>
+                            <div class="text-xs text-gray-400 mt-1">دقت شناسایی فیشینگ</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-black text-white">۰ ثانیه</div>
+                            <div class="text-xs text-gray-400 mt-1">تأخیر در کپی رمز OTP</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right / 3D Isometric Phone Visual Mockup -->
+                <div class="lg:col-span-5 relative perspective-1000 flex justify-center">
+
+                    <!-- Glowing Background Aura -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-cyanGlow/20 to-royalBlue/30 rounded-3xl blur-3xl transform scale-90">
+                    </div>
+
+                    <!-- Smartphone Frame -->
+                    <div
+                        class="relative w-[300px] sm:w-[340px] h-[600px] sm:h-[650px] bg-navyDark rounded-[45px] p-3 border-4 border-gray-700/60 shadow-2xl hero-phone-rotate glow-border-cyan">
+
+                        <!-- Screen Inner Container -->
+                        <div
+                            class="w-full h-full bg-[#0D1522] rounded-[36px] overflow-hidden relative flex flex-col justify-between p-4 border border-white/10">
+
+                            <!-- Phone Top Notch & Bar -->
+                            <div
+                                class="w-full flex justify-between items-center px-3 pt-1 text-[11px] text-gray-400 mb-3">
+                                <span>18:42</span>
+                                <div class="w-16 h-3 bg-black rounded-full mx-auto"></div>
+                                <div class="flex items-center gap-1">
+                                    <i class="fa-solid fa-wifi text-[10px]"></i>
+                                    <i class="fa-solid fa-signal text-[10px]"></i>
+                                    <i class="fa-solid fa-battery-three-quarters text-[10px]"></i>
+                                </div>
+                            </div>
+
+                            <!-- Floating Instant OTP Notification Card (Image 5 Concept) -->
+                            <div
+                                class="bg-navyCard/90 border border-amberWarning/50 rounded-2xl p-3 shadow-xl backdrop-blur-md animate-float mb-2">
+                                <div class="flex items-center justify-between mb-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-amberWarning animate-ping"></span>
+                                        <span class="text-[11px] font-bold text-amberWarning">رمز یک‌بارمصرف
+                                            (OTP)</span>
+                                    </div>
+                                    <span class="text-[9px] text-gray-400">هم‌اکنون</span>
+                                </div>
+                                <div class="flex items-center justify-between mt-2">
+                                    <span class="text-xl font-black tracking-widest text-white font-mono">8 4 9 2
+                                        0</span>
+                                    <button
+                                        class="bg-amberWarning/20 hover:bg-amberWarning/30 border border-amberWarning/40 text-amberWarning text-xs px-3 py-1 rounded-lg font-bold flex items-center gap-1">
+                                        <i class="fa-solid fa-copy text-[10px]"></i>
+                                        <span>کپی سریع</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- App Content Feed Mockup -->
+                            <div class="flex-1 space-y-3 overflow-hidden my-2">
+
+                                <!-- Verified Bank SMS (Image 2 Concept) -->
+                                <div
+                                    class="p-3 rounded-2xl bg-navyCard/80 border border-emeraldGlow/30 hover:border-emeraldGlow transition-all">
+                                    <div class="flex items-center justify-between mb-1.5">
+                                        <div class="flex items-center gap-1.5">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-emeraldGlow/20 text-emeraldGlow flex items-center justify-center text-xs">
+                                                <i class="fa-solid fa-[#00C897] fa-building-columns"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-white">بانک ملی ایران</span>
+                                            <!-- Glowing Verified Badge -->
+                                            <span
+                                                class="bg-emeraldGlow text-midnight text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
+                                                <i class="fa-solid fa-check text-[8px]"></i> تایید رسمی
+                                            </span>
+                                        </div>
+                                        <span class="text-[10px] text-gray-400">سیم‌کارت ۱</span>
+                                    </div>
+                                    <p class="text-[11px] text-gray-300 leading-snug">
+                                        واریز: ۲,۵۰۰,۰۰۰ ریال <br>
+                                        مانده: ۱۸,۴۵۰,۰۰۰ ریال
+                                    </p>
+                                </div>
+
+                                <!-- Phishing Warning SMS Alert (Image 3 Concept) -->
+                                <div
+                                    class="p-3 rounded-2xl bg-coralRed/15 border border-coralRed/60 relative overflow-hidden">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <div class="flex items-center gap-1.5">
+                                            <i class="fa-solid fa-triangle-exclamation text-coralRed text-xs"></i>
+                                            <span class="text-xs font-bold text-coralRed">هشدار کلاهبرداری!</span>
+                                        </div>
+                                        <span
+                                            class="text-[9px] bg-coralRed/30 text-coralRed px-1.5 py-0.5 rounded font-mono">ناشناس</span>
+                                    </div>
+                                    <p class="text-[10px] text-gray-300 line-through opacity-70">
+                                        ابلاغیه جدید دادگستری. جهت مشاهده روی لینک زیر کلیک کنید:
+                                    </p>
+                                    <div
+                                        class="mt-1 bg-coralRed/20 text-coralRed text-[10px] p-1.5 rounded text-center font-bold">
+                                        <i class="fa-solid fa-ban ml-1"></i> لینک خطرناک مسدود شد
+                                    </div>
+                                </div>
+
+                                <!-- Normal Dual SIM Chat Item (Image 6 Concept) -->
+                                <div class="p-3 rounded-2xl bg-navyCard/50 border border-white/5">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-xs font-bold text-white">همراه اول (خدماتی)</span>
+                                        <span
+                                            class="text-[9px] bg-royalBlue/20 text-blue-400 px-1.5 py-0.5 rounded">سیم۲</span>
+                                    </div>
+                                    <p class="text-[10px] text-gray-400 truncate">
+                                        بسته اینترنت یک‌ماهه‌ شما با موفقیت فعال گردید.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Bottom Floating Feature Pill -->
+                            <div
+                                class="py-2.5 px-3 rounded-2xl bg-gradient-to-r from-royalBlue/30 to-cyanGlow/20 border border-cyanGlow/30 text-center">
+                                <span
+                                    class="text-[11px] font-bold text-cyanGlow flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-microchip"></i> موتور پردازش محلی بدون نیاز به اینترنت
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY FEATURES SECTION (Incorporating the Image Visual Contexts) -->
+    <section id="features" class="py-20 relative bg-navyDark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-black text-cyanGlow tracking-widest uppercase">امکانات منحصر‌به‌فرد</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white">پاسخ هوشمندانه به تمام نیازهای پیامکی</p>
+                <p class="text-gray-400 text-sm sm:text-base">طراحی شده بر اساس دقیق‌ترین نیازهای کاربران ایرانی و پایش
+                    تهدیدهای روز</p>
+            </div>
+
+            <!-- Grid of 5 Key Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Feature 1: Verified Sender Badge (Image 2) -->
+                <div
+                    class="glass-panel p-8 rounded-3xl relative group hover:-translate-y-2 transition-all duration-300 border border-emeraldGlow/20 hover:border-emeraldGlow/60">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-emeraldGlow/10 text-emeraldGlow flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">نشان‌دار کردن سرشماره‌های معتبر</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        تشخیص هوشمند پیامک‌های بانکی، سازمانی و رسمی. نمایش بج سبز تایید هویت جهت اطمینان کامل از واقعی
+                        بودن فرستنده قبل از باز کردن پیام.
+                    </p>
+                    <div class="bg-navyDark/80 p-3 rounded-xl border border-emeraldGlow/30 flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-emeraldGlow/20 flex items-center justify-center text-emeraldGlow text-xs">
+                            <i class="fa-solid fa-[#00C897] fa-building-columns"></i>
+                        </div>
+                        <div class="text-xs">
+                            <div class="text-white font-bold flex items-center gap-1">
+                                بانک سپه <i class="fa-solid fa-circle-check text-emeraldGlow text-[10px]"></i>
+                            </div>
+                            <div class="text-gray-400 text-[10px]">تایید رسمی پایگاه داده رای‌پیام</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Anti-Phishing Scam Warning (Image 3) -->
+                <div
+                    class="glass-panel p-8 rounded-3xl relative group hover:-translate-y-2 transition-all duration-300 border border-coralRed/20 hover:border-coralRed/60">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-coralRed/10 text-coralRed flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">سپر ضد فیشینگ و بدافزار</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        تحلیل خط به‌خط لینک‌ها و ساختار متن با مدل‌های تحلیل الگویی. مسدودسازی لینک‌های جعلی ثنا،
+                        ابلاغیه، سهام عدالت و ثبت‌نام‌های جعلی.
+                    </p>
+                    <div class="bg-coralRed/10 p-3 rounded-xl border border-coralRed/40 flex items-center gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-coralRed text-xl"></i>
+                        <div class="text-xs">
+                            <div class="text-coralRed font-bold">هشدار: لینک آلوده و جعلی</div>
+                            <div class="text-gray-300 text-[10px]">از کلیک روی لینک‌های ناشناس خودداری کنید</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Fast OTP Copy (Image 5) -->
+                <div
+                    class="glass-panel p-8 rounded-3xl relative group hover:-translate-y-2 transition-all duration-300 border border-amberWarning/20 hover:border-amberWarning/60">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-amberWarning/10 text-amberWarning flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">استخراج کدهای یک‌بارمصرف (OTP)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        شناسایی آنی کد ۵ یا ۶ رقمی از میان متن‌های طولانی بانکی و نمایش دکمه «کپی سریع» در نوتیفیکیشن
+                        بدون نیاز به ورود به اپلیکیشن.
+                    </p>
+                    <div
+                        class="bg-navyDark/80 p-3 rounded-xl border border-amberWarning/30 flex items-center justify-between">
+                        <span class="text-xs text-gray-300">کد ورود: <strong
+                                class="text-amberWarning font-mono text-sm">73912</strong></span>
+                        <span class="text-[10px] bg-amberWarning/20 text-amberWarning px-2 py-1 rounded font-bold">کپی
+                            شد!</span>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Crowdsourced Spam Reporting (Image 4) -->
+                <div
+                    class="glass-panel p-8 rounded-3xl relative group hover:-translate-y-2 transition-all duration-300 border border-cyanGlow/20 hover:border-cyanGlow/60">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-cyanGlow/10 text-cyanGlow flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">گزارش‌دهی جمع‌سپاری اسپم</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        قدرت گرفته از جامعه چندصد هزار نفری کاربران. با گزارش یک شماره مزاحم یا کلاهبردار توسط شما، کل
+                        کاربران در برابر آن ایمن می‌شوند.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-cyanGlow font-medium">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <span>بروزرسانی لحظه‌ای پایگاه داده تهدیدات</span>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Dual SIM & Persian Search (Image 6) -->
+                <div
+                    class="glass-panel p-8 rounded-3xl relative group hover:-translate-y-2 transition-all duration-300 border border-royalBlue/20 hover:border-royalBlue/60 lg:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-royalBlue/20 text-blue-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-sim-card"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">مدیریت دو سیم‌کارت و جستجوی پیشرفته</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                تفکیک بصری دقیق پیامک‌های سیم‌کارت ۱ و ۲، فیلتر سریع بر اساس بانک‌ها یا خدمات، و جستجوی
+                                آنی در متون فارسی بدون افت سرعت.
+                            </p>
+                        </div>
+                        <div class="space-y-3 bg-navyDark/90 p-4 rounded-2xl border border-white/10">
+                            <!-- Search Bar Mockup -->
+                            <div
+                                class="bg-navyCard px-3 py-2 rounded-xl flex items-center gap-2 border border-white/10 text-xs">
+                                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                                <span class="text-gray-300">جستجو: "تراکنش بانک ملی"...</span>
+                            </div>
+                            <!-- SIM Tabs Mockup -->
+                            <div class="flex gap-2">
+                                <span
+                                    class="flex-1 py-1.5 bg-royalBlue text-white text-[11px] font-bold rounded-lg text-center">سیم‌کارت
+                                    ۱ (همراه اول)</span>
+                                <span
+                                    class="flex-1 py-1.5 bg-navyCard text-gray-400 text-[11px] rounded-lg text-center">سیم‌کارت
+                                    ۲ (ایرانسل)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE INTERACTIVE SMS SIMULATOR -->
+    <section id="simulator" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span
+                    class="px-4 py-1.5 rounded-full bg-cyanGlow/10 text-cyanGlow text-xs font-bold border border-cyanGlow/20">تست
+                    تعاملی</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-3 mb-4">شبیه‌ساز زنده عملکرد رای‌پیام</h2>
+                <p class="text-gray-400 text-sm sm:text-base">روی انواع پیامک‌های زیر کلیک کنید تا ببینید رای‌پیام چگونه
+                    آن‌ها را تحلیل و ایمن می‌کند.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-white/10">
+
+                <!-- Selector Buttons -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+                    <button id="sim-btn-otp" onclick="switchSimTab('otp')"
+                        class="sim-tab-btn active px-4 py-3 rounded-2xl font-bold text-sm bg-amberWarning/20 text-amberWarning border border-amberWarning/50 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-key"></i>
+                        <span>پیامک کد OTP</span>
+                    </button>
+
+                    <button id="sim-btn-phish" onclick="switchSimTab('phish')"
+                        class="sim-tab-btn px-4 py-3 rounded-2xl font-bold text-sm bg-navyDark text-gray-400 border border-white/5 hover:border-coralRed/40 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-skull-crossbones"></i>
+                        <span>پیامک فیشینگ / کلاهبرداری</span>
+                    </button>
+
+                    <button id="sim-btn-bank" onclick="switchSimTab('bank')"
+                        class="sim-tab-btn px-4 py-3 rounded-2xl font-bold text-sm bg-navyDark text-gray-400 border border-white/5 hover:border-emeraldGlow/40 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>پیامک رسمی بانکی</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Phone Screen Display -->
+                <div
+                    class="bg-[#0B121E] rounded-2xl p-6 border border-gray-800 relative min-h-[260px] flex flex-col justify-between">
+
+                    <!-- Content Area -->
+                    <div id="sim-display-area">
+                        <!-- Default OTP Content -->
+                        <div class="animate-fade-in space-y-4">
+                            <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amberWarning animate-ping"></span>
+                                    <span class="font-bold text-white text-sm">پیامک دریافت شده از: <span
+                                            class="text-amberWarning font-mono">982000...</span></span>
+                                </div>
+                                <span class="text-xs text-gray-400">هم‌اکنون</span>
+                            </div>
+
+                            <div class="p-4 bg-navyCard/60 rounded-xl border border-amberWarning/30">
+                                <p class="text-sm text-gray-200 leading-relaxed">
+                                    کد تایید ورود شما به سامانه: <strong
+                                        class="text-amberWarning text-lg font-mono">92841</strong>. این کد تا ۲ دقیقه
+                                    معتبر است.
+                                </p>
+                            </div>
+
+                            <!-- RaiPayam Smart Action Overlay -->
+                            <div
+                                class="p-4 bg-amberWarning/10 rounded-xl border border-amberWarning/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-bolt text-amberWarning text-2xl"></i>
+                                    <div>
+                                        <div class="text-xs font-bold text-amberWarning">کد OTP استخراج شد</div>
+                                        <div class="text-[11px] text-gray-300">آماده کپی هوشمند یک‌کلیکی</div>
+                                    </div>
+                                </div>
+                                <button onclick="copyDemoOtp(this)"
+                                    class="w-full sm:w-auto px-6 py-2.5 bg-amberWarning text-midnight font-black text-xs rounded-xl shadow-lg hover:bg-amber-400 transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-copy"></i>
+                                    <span id="copy-btn-text">کپی سریع کد (92841)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Micro Disclaimer -->
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 text-center text-[11px] text-gray-500">
+                        <i class="fa-solid fa-microchip ml-1"></i> تمامی تحلیل‌ها به‌صورت ۱۰۰٪ محلی (Offline) روی گوشی
+                        انجام می‌شود.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CROWDSOURCING & SECURITY ARCHITECTURE -->
+    <section id="crowdsourcing" class="py-20 relative bg-navyDark/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Graphics/Network Diagram -->
+                <div class="lg:col-span-6 relative flex justify-center">
+                    <div
+                        class="w-full max-w-md h-80 sm:h-96 glass-panel rounded-3xl p-6 border border-cyanGlow/30 relative flex items-center justify-center overflow-hidden">
+
+                        <!-- Central Phone Node -->
+                        <div
+                            class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-cyanGlow to-royalBlue flex items-center justify-center text-midnight text-3xl font-bold shadow-2xl z-10 animate-pulse">
+                            <i class="fa-solid fa-shield-halved text-white"></i>
+                        </div>
+
+                        <!-- Satellite Community Nodes -->
+                        <div
+                            class="absolute top-8 right-12 bg-navyCard p-3 rounded-xl border border-white/10 flex items-center gap-2 text-xs text-gray-300 animate-float">
+                            <i class="fa-solid fa-user-shield text-cyanGlow"></i> کاربر مشهد
+                        </div>
+                        <div
+                            class="absolute bottom-10 left-10 bg-navyCard p-3 rounded-xl border border-white/10 flex items-center gap-2 text-xs text-gray-300 animate-float-slow">
+                            <i class="fa-solid fa-user-shield text-cyanGlow"></i> کاربر تهران
+                        </div>
+                        <div
+                            class="absolute top-12 left-12 bg-navyCard p-3 rounded-xl border border-white/10 flex items-center gap-2 text-xs text-gray-300 animate-float">
+                            <i class="fa-solid fa-user-shield text-cyanGlow"></i> کاربر شیراز
+                        </div>
+                        <div
+                            class="absolute bottom-8 right-10 bg-navyCard p-3 rounded-xl border border-white/10 flex items-center gap-2 text-xs text-gray-300 animate-float-slow">
+                            <i class="fa-solid fa-user-shield text-cyanGlow"></i> کاربر تبریز
+                        </div>
+
+                        <!-- Decorative Lines -->
+                        <svg
+                            class="absolute inset-0 w-full h-full pointer-events-none stroke-cyanGlow/20 stroke-dasharray-2">
+                            <line x1="50%" y1="50%" x2="80%" y2="20%" stroke-width="2" />
+                            <line x1="50%" y1="50%" x2="20%" y2="80%" stroke-width="2" />
+                            <line x1="50%" y1="50%" x2="20%" y2="20%" stroke-width="2" />
+                            <line x1="50%" y1="50%" x2="80%" y2="80%" stroke-width="2" />
+                        </svg>
+
+                    </div>
+                </div>
+
+                <!-- Right Text Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold text-cyanGlow tracking-widest uppercase">قدرت جمع‌سپاری</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                        شبکه‌ای یکپارچه برای امنیت کل جامعه کاربران
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        روش‌های کلاهبرداری سایبری روزبه‌روز پیچیده‌تر می‌شوند. رای‌پیام با استفاده از الگوریتم
+                        جمع‌سپاری، گزارش‌های کاربران درباره شماره‌های مزاحم یا لینک‌های آلوده را به‌صورت آنی تجمیع کرده
+                        و پس از راستی‌آزمایی، تمام کاربران برنامه را در برابر شماره کلاهبردار جدید ایمن می‌سازد.
+                    </p>
+
+                    <ul class="space-y-4 pt-2">
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="w-6 h-6 rounded-full bg-cyanGlow/20 text-cyanGlow flex items-center justify-center text-xs mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-sm text-gray-200">گزارش‌دهی ۱-کلیکی شماره‌های تبلیغاتی و کلاهبرداری</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="w-6 h-6 rounded-full bg-cyanGlow/20 text-cyanGlow flex items-center justify-center text-xs mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-sm text-gray-200">به‌روزرسانی خودکار دیتابیس بدون نیاز به آپدیت کلی
+                                اپلیکیشن</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="w-6 h-6 rounded-full bg-cyanGlow/20 text-cyanGlow flex items-center justify-center text-xs mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-sm text-gray-200">حفظ کامل حریم خصوصی و عدم ارسال متن پیامک‌های
+                                شخصی</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section id="faq" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-14 space-y-3">
+                <span class="text-xs font-bold text-cyanGlow tracking-widest uppercase">سوالات متداول</span>
+                <h2 class="text-3xl font-black text-white">پاسخ به ابهامات شما</h2>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- FAQ Item 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+                    <button onclick="toggleFaq(this)"
+                        class="w-full p-6 text-right font-bold text-white flex items-center justify-between gap-4 hover:text-cyanGlow transition-colors">
+                        <span>آیا رای‌پیام به پیامک‌های شخصی من دسترسی دارد یا آن‌ها را به سرور منتقل می‌کند؟</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
+                        خیر. امنیت و حریم خصوصی اولویت اصلی رای‌پیام است. تمام الگوریتم‌های پردازش پیامک، تشخیص کدهای
+                        یک‌بارمصرف (OTP) و تحلیل لینک‌ها به‌صورت ۱۰۰٪ آفلاین و محلی روی گوشی شما اجرا می‌شوند و هیچ متن
+                        پیامکی به هیچ سرور خارجی منتقل نمی‌شود.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+                    <button onclick="toggleFaq(this)"
+                        class="w-full p-6 text-right font-bold text-white flex items-center justify-between gap-4 hover:text-cyanGlow transition-colors">
+                        <span>سیستم تشخیص فیشینگ چگونه کار می‌کند؟</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
+                        رای‌پیام با تحلیل ساختار لینک‌ها، دامنه وب‌سایت‌ها، کلمات کلیدی مشکوک (مانند سهام عدالت، ابلاغیه
+                        ثنا، یارانه) و تطابق آن‌ها با سرشماره ارسال‌کننده، پیامک‌های آلوده را قبل از اینکه روی آن‌ها
+                        کلیک کنید شناسایی کرده و هشدار قرمز نمایش می‌دهد.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+                    <button onclick="toggleFaq(this)"
+                        class="w-full p-6 text-right font-bold text-white flex items-center justify-between gap-4 hover:text-cyanGlow transition-colors">
+                        <span>آیا برنامه از گوشی‌های دو سیم‌کارت پشتیبانی می‌کند؟</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
+                        بله. رای‌پیام به‌طور کامل با دستگاه‌های چند سیم‌کارت اندروید سازگار است و پیامک‌های دریافتی هر
+                        خط را با نشانگر مشخص و امکان فیلتر جداگانه نمایش می‌دهد.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/5">
+                    <button onclick="toggleFaq(this)"
+                        class="w-full p-6 text-right font-bold text-white flex items-center justify-between gap-4 hover:text-cyanGlow transition-colors">
+                        <span>چگونه می‌توانم رای‌پیام را به‌روزرسانی کنم؟</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
+                        شما می‌توانید آخرین نسخه برنامه را از وب‌سایت رسمی یا استورهای معتبر ایرانی مانند کافه‌بازار و
+                        مایکت دریافت و به‌روزرسانی کنید.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT & SUPPORT SECTION -->
+    <section id="contact" class="py-20 relative bg-navyDark/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span
+                    class="px-4 py-1.5 rounded-full bg-cyanGlow/10 text-cyanGlow text-xs font-bold border border-cyanGlow/20">ارتباط
+                    سریع</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">با تیم رای‌پیام در تماس باشید</h2>
+                <p class="text-gray-400 text-sm sm:text-base">مشتاق شنیدن نظرات، پیشنهادات و سوالات شما برای بهبود
+                    روزافزون رای‌پیام هستیم.</p>
+            </div>
+
+            <!-- Contact Cards Bar -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+                <!-- Phone Card -->
+                <div
+                    class="glass-panel p-6 rounded-2xl flex items-center justify-between group hover:border-cyanGlow/50 transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyanGlow/10 text-cyanGlow flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">شماره تماس رسمی</div>
+                            <a href="tel:09123456789"
+                                class="text-base font-bold text-white dir-ltr font-mono hover:text-cyanGlow transition-colors">0912
+                                345 6789</a>
+                        </div>
+                    </div>
+                    <button onclick="copyToClipboard('09123456789', this)" title="کپی شماره تلفن"
+                        class="p-2.5 rounded-lg bg-white/5 hover:bg-cyanGlow/20 text-gray-400 hover:text-cyanGlow transition-all">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+
+                <!-- Email Card -->
+                <div
+                    class="glass-panel p-6 rounded-2xl flex items-center justify-between group hover:border-cyanGlow/50 transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyanGlow/10 text-cyanGlow flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">پست الکترونیک</div>
+                            <a href="mailto:sale@raybone.ir"
+                                class="text-base font-bold text-white font-mono hover:text-cyanGlow transition-colors">sale@raybone.ir</a>
+                        </div>
+                    </div>
+                    <button onclick="copyToClipboard('sale@raybone.ir', this)" title="کپی ایمیل"
+                        class="p-2.5 rounded-lg bg-white/5 hover:bg-cyanGlow/20 text-gray-400 hover:text-cyanGlow transition-all">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+
+                <!-- Address Card -->
+                <div
+                    class="glass-panel p-6 rounded-2xl flex items-center gap-4 group hover:border-cyanGlow/50 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cyanGlow/10 text-cyanGlow flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">آدرس دفتر مرکز نوآوری</div>
+                        <div class="text-sm font-bold text-white leading-snug">خیابان قاسمی - باکس شریف</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sharif Box Interactive Location Visual -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <div
+                    class="lg:col-span-12 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-transparent z-10 pointer-events-none">
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-20 items-center">
+
+                        <!-- Text Content -->
+                        <div class="lg:col-span-4 space-y-5">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyanGlow/20 text-cyanGlow text-xs font-bold">
+                                <i class="fa-solid fa-building-user"></i>
+                                <span>استقرار در اکوسیستم فناوری</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-white">باکس شریف (Sharif Box)</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                مرکز نوآوری و ایستگاه کارآفرینی دانشگاه صنعتی شریف، خاستگاه فناوری و توسعه سرویس‌های
+                                پیشرفته رای‌پیام.
+                            </p>
+                            <div
+                                class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+                                <span class="flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-cyanGlow"></i> ساعات کاری:
+                                </span>
+                                <span class="text-white font-bold">شنبه تا چهارشنبه ۹ الی ۱۷</span>
+                            </div>
+                        </div>
+
+                        <!-- Visual Stylized Map Card -->
+                        <div class="lg:col-span-8 bg-navyDark/90 rounded-2xl p-4 border border-white/10 space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-400">
+                                    <i class="fa-solid fa-route text-cyanGlow ml-1"></i> موقعیت جغرافیایی:
+                                </span>
+                                <span class="text-cyanGlow font-bold">تهران، خیابان قاسمی (باکس شریف)</span>
+                            </div>
+
+                            <div class="h-56 sm:h-64 rounded-xl border border-cyanGlow/20 relative overflow-hidden">
+                                <iframe src="https://maps.google.com/maps?q=35.704878,51.351906&t=m&z=17&output=embed"
+                                    width="100%" height="100%"
+                                    style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(100%);"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+
+                            <div class="pt-2 flex justify-end text-xs border-t border-white/10">
+                                <a href="https://www.google.com/maps/place/35%C2%B042'17.6%22N+51%C2%B021'06.9%22E/@35.7048823,51.3493311,17z/data=!3m1!4b1!4m12!1m7!3m6!1s0x3f8e00a8bc1a7e63:0x61a5a909b878501!2sSharif+University+of+Technology!8m2!3d35.7036491!4d51.3517033!16zL20vMDJiYnlo!3m3!8m2!3d35.704878!4d51.351906?hl=en-US&entry=ttu"
+                                    target="_blank"
+                                    class="text-cyanGlow font-bold hover:underline flex items-center gap-1">
+                                    مسیریابی روی نقشه <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DOWNLOAD CTA BANNER -->
+    <section id="download" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="relative rounded-3xl p-8 sm:p-14 overflow-hidden bg-gradient-to-r from-navyCard via-navyDark to-royalBlue/40 border border-cyanGlow/40 shadow-2xl text-center space-y-8">
+
+                <!-- Background Glow Elements -->
+                <div
+                    class="absolute -top-24 -right-24 w-72 h-72 bg-cyanGlow/20 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute -bottom-24 -left-24 w-72 h-72 bg-royalBlue/30 rounded-full blur-3xl pointer-events-none">
+                </div>
+
+                <div class="max-w-2xl mx-auto space-y-4 relative z-10">
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">همین امروز پیامک‌های خود را هوشمند کنید</h2>
+                    <p class="text-gray-300 text-sm sm:text-base font-light">
+                        رای‌پیام را به‌صورت کاملاً رایگان دریافت کنید و تجربه مدیریت امن، روان و بدون مزاحمت پیامک‌ها را
+                        آغاز کنید.
+                    </p>
+                </div>
+
+                <!-- Store Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-4 relative z-10">
+                    <a href="#"
+                        class="px-8 py-4 rounded-2xl bg-cyanGlow text-midnight font-black text-base shadow-xl hover:bg-cyanAccent transition-all flex items-center gap-3">
+                        <i class="fa-brands fa-android text-2xl"></i>
+                        <div class="text-right">
+                            <div class="text-[10px] opacity-80">دانلود مستقیم</div>
+                            <div>فایل APK نسخه جدید</div>
+                        </div>
+                    </a>
+
+                    <a href="#"
+                        class="px-8 py-4 rounded-2xl glass-panel text-white font-bold text-base hover:bg-white/10 transition-all flex items-center gap-3 border border-white/20">
+                        <i class="fa-solid fa-store text-xl text-cyanGlow"></i>
+                        <div class="text-right">
+                            <div class="text-[10px] text-gray-400">دریافت از</div>
+                            <div>کافه‌بازار / مایکت</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Security Badge -->
+                <div class="pt-4 flex items-center justify-center gap-6 text-xs text-gray-400 relative z-10">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield text-cyanGlow"></i> بدون نیاز
+                        به روت</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-cyanGlow"></i> سازگار با
+                        اندروید ۸ به بالا</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-cyanGlow"></i> کاملاً
+                        رایگان</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-800 bg-navyDark py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4 md:col-span-2">
+                    <a href="#" class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyanGlow to-royalBlue flex items-center justify-center text-midnight font-black">
+                            <i class="fa-solid fa-shield-halved text-white text-sm"></i>
+                        </div>
+                        <span class="text-xl font-black text-white">رای‌<span class="text-cyanGlow">پیام</span></span>
+                    </a>
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
+                        رای‌پیام یک اپلیکیشن اندرویدی پیشرفته برای مدیریت پیامک‌ها با تمرکز ویژه بر امنیت، تشخیص فیشینگ،
+                        سرعت بالا در استخراج رمز OTP و تطابق کامل با نیازهای کاربران ایرانی است.
+                    </p>
+
+                    <!-- Quick Contact Badges in Footer -->
+                    <div class="pt-2 space-y-2 text-xs text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-cyanGlow w-4"></i>
+                            <span>خیابان قاسمی - باکس شریف</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-cyanGlow w-4"></i>
+                            <a href="tel:09123456789"
+                                class="font-mono dir-ltr hover:text-cyanGlow transition-colors">09123456789</a>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-cyanGlow w-4"></i>
+                            <a href="mailto:sale@raybone.ir"
+                                class="font-mono hover:text-cyanGlow transition-colors">sale@raybone.ir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">دسترسی سریع</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#features" class="hover:text-cyanGlow transition-colors">امکانات اصلی</a></li>
+                        <li><a href="#security" class="hover:text-cyanGlow transition-colors">لایه‌های امنیتی</a></li>
+                        <li><a href="#simulator" class="hover:text-cyanGlow transition-colors">شبیه‌ساز پیامک</a></li>
+                        <li><a href="#contact" class="hover:text-cyanGlow transition-colors">ارتباط با ما</a></li>
+                        <li><a href="#faq" class="hover:text-cyanGlow transition-colors">سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal & Trust -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">امنیت و قوانین</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-cyanGlow transition-colors">سیاست حریم خصوصی</a></li>
+                        <li><a href="#" class="hover:text-cyanGlow transition-colors">شرایط استفاده از خدمات</a></li>
+                        <li><a href="#" class="hover:text-cyanGlow transition-colors">گزارش آسیب‌پذیری سایبری</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div
+                class="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <div>تمامی حقوق مادی و معنوی این وب‌سایت متعلق به رای‌پیام می‌باشد. © ۱۴۰۳</div>
+                <div class="flex items-center gap-4 text-base">
+                    <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
