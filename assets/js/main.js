@@ -1,21 +1,26 @@
+// ─────────────────────────────────────────────────────────────
 // Mobile Navigation Toggle
+// ─────────────────────────────────────────────────────────────
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    mobileMenu.classList.toggle('flex');
-});
-
-// Close mobile menu when clicking links
-document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
+if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
     });
-});
 
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+    });
+}
+
+// ─────────────────────────────────────────────────────────────
 // Copy Text to Clipboard Utility
+// ─────────────────────────────────────────────────────────────
 function copyToClipboard(text, button) {
     const tempInput = document.createElement('input');
     tempInput.value = text;
@@ -28,12 +33,12 @@ function copyToClipboard(text, button) {
     const originalClass = icon.className;
     icon.className = 'fa-solid fa-check text-cyanGlow';
 
-    setTimeout(() => {
-        icon.className = originalClass;
-    }, 2000);
+    setTimeout(() => { icon.className = originalClass; }, 2000);
 }
 
+// ─────────────────────────────────────────────────────────────
 // Contact Form Submission
+// ─────────────────────────────────────────────────────────────
 function handleContactSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('contact-submit-btn');
@@ -46,7 +51,8 @@ function handleContactSubmit(e) {
         btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>پیام شما با موفقیت ارسال شد!</span>`;
         btn.classList.remove('from-cyanGlow', 'to-cyanAccent');
         btn.classList.add('bg-emeraldGlow', 'text-midnight');
-        document.getElementById('contact-form').reset();
+        const form = document.getElementById('contact-form');
+        if(form) form.reset();
 
         setTimeout(() => {
             btn.innerHTML = originalContent;
@@ -57,10 +63,16 @@ function handleContactSubmit(e) {
     }, 1200);
 }
 
+// ─────────────────────────────────────────────────────────────
 // Interactive Live SMS Simulator Switching Logic
-const simDisplayArea = document.getElementById('sim-display-area');
-
+// ─────────────────────────────────────────────────────────────
 function switchSimTab(type) {
+    const simDisplayArea = document.getElementById('sim-display-area');
+    if (!simDisplayArea) {
+        console.error('switchSimTab: #sim-display-area not found in DOM');
+        return;
+    }
+
     // Reset active states on buttons
     document.querySelectorAll('.sim-tab-btn').forEach(btn => {
         btn.className = 'sim-tab-btn px-4 py-3 rounded-2xl font-bold text-sm bg-navyDark text-gray-400 border border-white/5 hover:border-gray-700 flex items-center justify-center gap-2 transition-all';
@@ -93,7 +105,7 @@ function switchSimTab(type) {
                     </div>
                     <button onclick="copyDemoOtp(this)" class="w-full sm:w-auto px-6 py-2.5 bg-amberWarning text-midnight font-black text-xs rounded-xl shadow-lg hover:bg-amber-400 transition-all flex items-center justify-center gap-2">
                         <i class="fa-solid fa-copy"></i>
-                        <span>کپی سریع کد (92841)</span>
+                        <span id="copy-btn-text">کپی سریع کد (92841)</span>
                     </button>
                 </div>
             </div>
@@ -157,7 +169,9 @@ function switchSimTab(type) {
     }
 }
 
+// ─────────────────────────────────────────────────────────────
 // Demo OTP Copy Notification Interactive Action
+// ─────────────────────────────────────────────────────────────
 function copyDemoOtp(button) {
     const span = button.querySelector('span');
     span.innerText = 'کد ۹۲۸۴۱ کپی شد!';
@@ -171,7 +185,9 @@ function copyDemoOtp(button) {
     }, 2500);
 }
 
+// ─────────────────────────────────────────────────────────────
 // FAQ Toggle Accordion
+// ─────────────────────────────────────────────────────────────
 function toggleFaq(button) {
     const content = button.nextElementSibling;
     const icon = button.querySelector('i');
@@ -184,3 +200,12 @@ function toggleFaq(button) {
         icon.style.transform = 'rotate(0deg)';
     }
 }
+
+// ─────────────────────────────────────────────────────────────
+// Expose functions globally (Important for inline onclick)
+// ─────────────────────────────────────────────────────────────
+window.switchSimTab = switchSimTab;
+window.copyToClipboard = copyToClipboard;
+window.handleContactSubmit = handleContactSubmit;
+window.copyDemoOtp = copyDemoOtp;
+window.toggleFaq = toggleFaq;
