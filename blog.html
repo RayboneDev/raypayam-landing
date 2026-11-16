@@ -1,0 +1,59 @@
+---
+layout: default
+title: وبلاگ | رای‌پیام
+---
+
+<section class="pt-32 pb-20 relative overflow-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">وبلاگ رای‌پیام</h1>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">آخرین اخبار، مقالات آموزشی و نکات امنیتی در حوزه فناوری و پیامک</p>
+        </div>
+
+        <!-- Blog Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            {% for post in site.posts %}
+            <!-- Blog Card -->
+            <article class="bg-white dark:bg-navyCard/80 rounded-3xl overflow-hidden border border-gray-200 dark:border-white/10 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl hover:shadow-cyanGlow/10 group flex flex-col">
+                
+                <!-- Image Placeholder (اگر عکسی در پست نبود، یک گرادیانت نمایش می‌دهد) -->
+                <a href="{{ post.url | relative_url }}" class="block h-48 bg-gradient-to-tr from-cyanGlow/20 to-royalBlue/20 relative overflow-hidden">
+                    {% if post.image %}
+                        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    {% else %}
+                        <div class="absolute inset-0 flex items-center justify-center text-cyanGlow/50">
+                            <i class="fa-solid fa-newspaper text-5xl"></i>
+                        </div>
+                    {% endif %}
+                </a>
+
+                <!-- Card Content -->
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center justify-between text-[11px] text-gray-500 dark:text-gray-400 mb-3 font-mono">
+                        <span><i class="fa-regular fa-calendar ml-1 text-cyanGlow"></i> {{ post.date | date: "%Y/%m/%d" }}</span>
+                        <span class="bg-gray-100 dark:bg-navyDark px-2 py-1 rounded-md">{{ post.category | default: "مقالات" }}</span>
+                    </div>
+                    
+                    <a href="{{ post.url | relative_url }}">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-cyanGlow transition-colors leading-tight">
+                            {{ post.title }}
+                        </h3>
+                    </a>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                        {{ post.excerpt | strip_html | truncatewords: 25 }}
+                    </p>
+                    
+                    <a href="{{ post.url | relative_url }}" class="inline-flex items-center text-sm font-bold text-cyanGlow hover:text-cyanAccent transition-colors mt-auto">
+                        مطالعه مقاله <i class="fa-solid fa-arrow-left text-[10px] mr-2"></i>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
