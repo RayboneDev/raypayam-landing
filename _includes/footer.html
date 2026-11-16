@@ -21,7 +21,8 @@
                 <div class="pt-2 space-y-2 text-xs text-gray-300">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-location-dot text-cyanGlow w-4"></i>
-                        <span>تهران، خیابان آزادی، خیابان حبیب‌الله، خیابان قاسمی، جنب جهاد دانشگاهی شریف، باکس شریف</span>
+                        <span>تهران، خیابان آزادی، خیابان حبیب‌الله، خیابان قاسمی، جنب جهاد دانشگاهی شریف، باکس
+                            شریف</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-phone text-cyanGlow w-4"></i>
@@ -52,8 +53,10 @@
             <div>
                 <h4 class="text-sm font-bold text-white mb-4">امنیت و قوانین</h4>
                 <ul class="space-y-2 text-xs text-gray-400">
-                    <li><a href="{{ '/privacy.html' | relative_url }}" class="hover:text-cyanGlow transition-colors">سیاست حریم خصوصی</a></li>
-                    <li><a href="{{ '/terms.html' | relative_url }}" class="hover:text-cyanGlow transition-colors">شرایط استفاده از خدمات</a></li>
+                    <li><a href="{{ '/privacy.html' | relative_url }}"
+                            class="hover:text-cyanGlow transition-colors">سیاست حریم خصوصی</a></li>
+                    <li><a href="{{ '/terms.html' | relative_url }}" class="hover:text-cyanGlow transition-colors">شرایط
+                            استفاده از خدمات</a></li>
                     <li><a href="#" class="hover:text-cyanGlow transition-colors">گزارش آسیب‌پذیری سایبری</a></li>
                 </ul>
             </div>
@@ -61,14 +64,50 @@
         </div>
 
         <!-- Bottom Copyright -->
+
         <div
             class="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
             <div>تمامی حقوق مادی و معنوی این وب‌سایت متعلق به رای‌پیام می‌باشد. © ۱۴۰۳</div>
             <div class="flex items-center gap-4 text-base">
-                <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-telegram"></i></a>
-                <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-cyanGlow transition-colors"><i class="fa-brands fa-github"></i></a>
+
+                <!-- Telegram (SVG) -->
+                <a href="#"
+                    class="text-gray-400 hover:text-cyanGlow transition-colors w-5 h-5 inline-flex items-center justify-center">
+                    <img src="{{ '/assets/images/telegram.svg' | relative_url }}" alt="تلگرام"
+                        class="w-5 h-5 fill-current opacity-70 hover:opacity-100 transition-opacity">
+                </a>
+
+                <!-- Instagram (SVG) -->
+                <a href="#"
+                    class="text-gray-400 hover:text-cyanGlow transition-colors w-5 h-5 inline-flex items-center justify-center">
+                    <img src="{{ '/assets/images/instagram.svg' | relative_url }}" alt="اینستاگرام"
+                        class="w-5 h-5 fill-current opacity-70 hover:opacity-100 transition-opacity">
+                </a>
+
+                <!-- GitHub (SVG) -->
+                <a href="#"
+                    class="text-gray-400 hover:text-cyanGlow transition-colors w-5 h-5 inline-flex items-center justify-center">
+                    <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="گیت‌هاب"
+                        class="w-5 h-5 fill-current opacity-70 hover:opacity-100 transition-opacity">
+                </a>
+
+                <!-- Bale (SVG) -->
+                <a href="#"
+                    class="text-gray-400 hover:text-cyanGlow transition-colors w-5 h-5 inline-flex items-center justify-center">
+                    <img src="{{ '/assets/images/bale.svg' | relative_url }}" alt="بله"
+                        class="w-5 h-5 fill-current opacity-70 hover:opacity-100 transition-opacity">
+                </a>
+
+                <!-- Eitaa (SVG) -->
+                <a href="#"
+                    class="text-gray-400 hover:text-cyanGlow transition-colors w-5 h-5 inline-flex items-center justify-center">
+                    <img src="{{ '/assets/images/eitaa.svg' | relative_url }}" alt="ایتا"
+                        class="w-5 h-5 fill-current opacity-70 hover:opacity-100 transition-opacity">
+                </a>
+
             </div>
         </div>
+
+
     </div>
 </footer>
