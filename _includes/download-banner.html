@@ -21,47 +21,37 @@
                 </p>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-4 relative z-10">
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 relative z-10">
 
                 <!-- کافه‌بازار -->
                 <a href="https://cafebazaar.ir/app/your.package.name"
-                    class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 p-2.5 rounded-2xl bg-black/40 hover:bg-black/60 border border-white/20 transition-all duration-300 group shadow-lg hover:border-cyanGlow/60 hover:shadow-cyanGlow/20 flex items-center justify-center"
+                    class="group inline-flex w-32 sm:w-36 md:w-40 h-12 sm:h-14 md:h-16 items-center justify-center hover:-translate-y-0.5 transition-transform duration-300"
                     target="_blank" rel="noopener noreferrer" title="دریافت از کافه‌بازار"
                     aria-label="دریافت از کافه‌بازار">
-                    <div
-                        class="w-full h-full rounded-xl bg-white flex items-center justify-center p-2 ring-1 ring-black/5 shadow-md group-hover:scale-105 transition-transform">
-                        <img src="{{ '/assets/images/bazaar.svg' | relative_url }}" alt="کافه‌بازار"
-                            class="w-full h-full object-contain" loading="lazy" decoding="async">
-                    </div>
+                    <img src="{{ '/assets/images/bazaar.png' | relative_url }}" alt="کافه‌بازار"
+                        class="h-full w-full object-contain drop-shadow-lg group-hover:scale-105 transition-transform"
+                        loading="lazy" decoding="async">
                 </a>
 
                 <!-- مایکت -->
                 <a href="https://myket.ir/app/your.package.name"
-                    class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 p-2.5 rounded-2xl bg-black/40 hover:bg-black/60 border border-white/20 transition-all duration-300 group shadow-lg hover:border-cyanGlow/60 hover:shadow-cyanGlow/20 flex items-center justify-center"
+                    class="group inline-flex w-32 sm:w-36 md:w-40 h-12 sm:h-14 md:h-16 items-center justify-center hover:-translate-y-0.5 transition-transform duration-300"
                     target="_blank" rel="noopener noreferrer" title="دانلود از مایکت" aria-label="دانلود از مایکت">
-                    <div
-                        class="w-full h-full rounded-xl bg-white flex items-center justify-center p-2 ring-1 ring-black/5 shadow-md group-hover:scale-105 transition-transform">
-                        <img src="{{ '/assets/images/myket.svg' | relative_url }}" alt="مایکت"
-                            class="w-full h-full object-contain" loading="lazy" decoding="async">
-                    </div>
+                    <img src="{{ '/assets/images/myket.png' | relative_url }}" alt="مایکت"
+                        class="h-full w-full object-contain drop-shadow-lg group-hover:scale-105 transition-transform"
+                        loading="lazy" decoding="async">
                 </a>
 
                 <!-- مستقیم (Direct APK Download) -->
-                <a href="{{ '/assets/downloads/raypayam-latest.apk' | relative_url }}"
-                    class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 p-2.5 rounded-2xl bg-cyanGlow/10 hover:bg-cyanGlow/20 border border-cyanGlow/40 transition-all duration-300 group shadow-lg flex flex-col items-center justify-center gap-1.5"
-                    title="دانلود مستقیم نسخه اندروید">
-                    <div
-                        class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl bg-cyanGlow/10 flex items-center justify-center border border-cyanGlow/30 group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-download text-cyanGlow text-sm sm:text-base"></i>
-                    </div>
-                    <div class="text-center rtl leading-tight px-1">
-                        <div class="text-[9px] sm:text-[10px] text-cyanGlow/80 font-light leading-none">نسخه مستقیم
-                        </div>
-                        <div
-                            class="text-[10px] sm:text-[11px] font-bold text-white tracking-wide mt-1 whitespace-nowrap">
-                            دانلود APK</div>
-                    </div>
+
+                <a href="https://myket.ir/app/your.package.name"
+                    class="group inline-flex w-32 sm:w-36 md:w-40 h-12 sm:h-14 md:h-16 items-center justify-center hover:-translate-y-0.5 transition-transform duration-300"
+                    target="_blank" rel="noopener noreferrer" title="دانلود مستقیم" aria-label="دانلود مستقیم">
+                    <img src="{{ '/assets/images/direct-download-badge.png' | relative_url }}" alt="مستقیم"
+                        class="h-full w-full object-contain drop-shadow-lg group-hover:scale-105 transition-transform"
+                        loading="lazy" decoding="async">
                 </a>
+
 
             </div>
 
